@@ -1,6 +1,6 @@
 'use strict';
 
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow } = require('electron');
 
 let mainWindow;
 
@@ -37,7 +37,6 @@ app.on('ready', () => {
 
 	// and load the index.html of the app.
 	mainWindow.loadURL('http://localhost:3000');
-	//Menu.setApplicationMenu(Menu.buildFromTemplate(mainMenuTemplate));
 	mainWindow.webContents.openDevTools();
 
 	// Emitted when the window is closed.
