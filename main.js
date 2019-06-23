@@ -1,6 +1,6 @@
 'use strict';
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 
 let mainWindow;
 
@@ -18,7 +18,7 @@ app.on('ready', () => {
 		minWidth: 1024,
 		minHeight: 768,
 		title: 'PSBN Desktop App',
-		frame: true,
+		frame: false,
 		backgroundColor: (process.platform !== 'darwin') ? '#212121' : null,
 		darkTheme: true,
 		vibrancy: 'ultra-dark',
@@ -65,4 +65,18 @@ app.on('activate', () => {
 	if (mainWindow === null) {
 		createWindow();
 	}
+});
+
+ipcMain.on('minimize', (event, arg) => {
+	mainWindow.minimize();
+});
+ipcMain.on('maximize', (event, arg) => {
+	if (mainWindow.isMaximized()) {
+		mainWindow.unmaximize();
+	} else {
+		mainWindow.maximize();
+	}
+});
+ipcMain.on('close', (event, arg) => {
+	mainWindow.close();
 });
