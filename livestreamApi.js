@@ -8,7 +8,8 @@ const accountIds = {
 	lhs: 9697821,
 	phs: 25780015,
 	rsk: 5145446,
-	smhs: 27655594
+	smhs: 27655594,
+	district: 9697821
 }
 
 // https://api.new.livestream.com/accounts/21054388
