@@ -7,7 +7,8 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"dev": "concurrently --kill-others \"SET BROWSER=none&&npm start\" \"wait-on http://localhost:3000 && electron .\""
+		"less": "less-watch-compiler src\\components src\\components",
+		"dev": "concurrently --kill-others \"npm run less\" \"SET BROWSER=none&&npm start\" \"wait-on http://localhost:3000 && electron .\""
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -27,6 +28,8 @@
 	"devDependencies": {
 		"concurrently": "^4.1.0",
 		"electron": "^5.0.5",
+		"less": "^3.9.0",
+		"less-watch-compiler": "^1.13.0",
 		"wait-on": "^3.2.0"
 	},
 	"dependencies": {
