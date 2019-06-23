@@ -6,6 +6,7 @@ div.windowControls {
   right: 8px;
 }
 div.windowControls i {
+  -webkit-app-region: no-drag;
   color: white;
   cursor: pointer;
 }
