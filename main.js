@@ -36,7 +36,7 @@ app.on('ready', () => {
 	mainWindowState.manage(mainWindow);
 
 	// and load the index.html of the app.
-	mainWindow.loadFile('http://localhost:3000');
+	mainWindow.loadURL('http://localhost:3000');
 	//Menu.setApplicationMenu(Menu.buildFromTemplate(mainMenuTemplate));
 	mainWindow.webContents.openDevTools();
 
