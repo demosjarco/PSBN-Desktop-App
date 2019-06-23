@@ -8,7 +8,8 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"less": "less-watch-compiler src\/components src\/components",
-		"dev": "concurrently --kill-others \"npm run less\" \"SET BROWSER=none&&npm start\" \"wait-on http://localhost:3000 && electron .\""
+		"electron": "electron .",
+		"dev": "concurrently --kill-others \"npm run less\" \"SET BROWSER=none&&npm start\" \"wait-on http://localhost:3000 && npm run electron\""
 	},
 	"eslintConfig": {
 		"extends": "react-app"
