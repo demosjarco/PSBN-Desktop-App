@@ -11,4 +11,25 @@ const accountIds = {
 	smhs: 27655594
 }
 
+// https://api.new.livestream.com/accounts/21054388
+// https://api.new.livestream.com/accounts/21054388/events/8580803
+function apiRequest(callback, accountId, eventId) {
+	if (accountId == undefined || accountId == null)
+		throw new Error('Must contain accountId');
+
+	let url = 'https://api.new.livestream.com/accounts/' + accountId;
+	if (eventId) {
+		url += '/events/' + eventId;
+	}
+	require('request')(url, function (error, response, body) {
+		if (error) {
+			throw error;
+		} else if (response.statusCode != 200) {
+			throw new Error('HTTP ' + response.statusCode);
+		} else {
+			callback(JSON.parse(body));
+		}
+	});
+}
+
 const { ipcMain } = require('electron');
