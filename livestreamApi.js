@@ -32,4 +32,6 @@ function apiRequest(callback, accountId, eventId) {
 	});
 }
 
-const { ipcMain } = require('electron');
+module.exports.loadAll = function () {
+
+}

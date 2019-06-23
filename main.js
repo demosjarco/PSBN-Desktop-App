@@ -48,6 +48,8 @@ app.on('ready', () => {
 	});
 
 	module.exports.mainWindow = mainWindow;
+
+	require('./livestreamApi').loadAll();
 });
 
 // Quit when all windows are closed.
