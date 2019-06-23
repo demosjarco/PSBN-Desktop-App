@@ -1,0 +1,12 @@
+div.windowControls {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+}
+div.windowControls i {
+  color: white;
+  cursor: pointer;
+}
+div.windowControls i:hover {
+  background-color: #cccccc80;
+}

@@ -67,16 +67,16 @@ app.on('activate', () => {
 	}
 });
 
-ipcMain.on('minimize', (event, arg) => {
+ipcMain.on('minimize', (event) => {
 	mainWindow.minimize();
 });
-ipcMain.on('maximize', (event, arg) => {
+ipcMain.on('maximize', (event) => {
 	if (mainWindow.isMaximized()) {
 		mainWindow.unmaximize();
 	} else {
 		mainWindow.maximize();
 	}
 });
-ipcMain.on('close', (event, arg) => {
+ipcMain.on('close', (event) => {
 	mainWindow.close();
 });
