@@ -1,0 +1,58 @@
+div.gridList {
+	width: 100%;
+	height: ~"calc(100vh - 50px)";
+	overflow-y: hidden;
+
+	div.videoGrid {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		height: 100%;
+		overflow-y: scroll;
+
+		div {
+			position: relative;
+			width: 400px;
+			height: 225px;
+
+			picture {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			div.content {
+				display: inline-block;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: initial;
+				padding: 8px;
+				box-sizing: border-box;
+				background-color: rgba(0, 0, 0, 2/3);
+				backdrop-filter: blur(5px);
+
+				span {
+					white-space: nowrap;
+					color: rgba(255, 255, 255, 2/3);
+					-webkit-text-stroke: 1px rgba(0, 0, 0, 1/3);
+
+					&.title {
+						display: block;
+					}
+
+					&.time {
+						float: left;
+					}
+
+					&.date {
+						float: right;
+					}
+				}
+			}
+		}
+	}
+}

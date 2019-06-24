@@ -30,7 +30,8 @@ app.on('ready', () => {
 			webSecurity: true,
 			allowRunningInsecureContent: false,
 			scrollBounce: true,
-			enableBlinkFeatures: 'OverlayScrollbars'
+			experimentalFeatures: true,
+			enableBlinkFeatures: 'OverlayScrollbars,AutomaticLazyImageLoading'
 		}
 	});
 
@@ -49,8 +50,6 @@ app.on('ready', () => {
 	});
 
 	module.exports.mainWindow = mainWindow;
-
-	livestreamApi.loadAll();
 });
 
 // Quit when all windows are closed.
@@ -84,6 +83,6 @@ ipcMain.on('close', (event) => {
 	mainWindow.close();
 });
 
-ipcMain.on('gotEvents', (event) => {
+ipcMain.on('getEvents', (event) => {
 	livestreamApi.loadAll();
 });

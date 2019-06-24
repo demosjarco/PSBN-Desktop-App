@@ -48,18 +48,36 @@ module.exports.loadAll = function() {
 			main.mainWindow.setProgressBar(done / total);
 
 			json.upcoming_events.data.forEach(function (event) {
-				upcoming.push(event);
+				let newEvent = true;
+				upcoming.map((oldEvent) => {
+					if (oldEvent.id == event.id)
+						newEvent = false;
+				});
+				if (newEvent)
+					upcoming.push(event);
 				done += 1;
 				main.mainWindow.setProgressBar(done / total);
 			});
 			json.past_events.data.forEach(function (event) {
-				past.push(event);
+				let newEvent = true;
+				past.map((oldEvent) => {
+					if (oldEvent.id == event.id)
+						newEvent = false;
+				});
+				if (newEvent)
+					past.push(event);
 				done += 1;
 				main.mainWindow.setProgressBar(done / total);
 			});
 
 			if (done == total) {
 				main.mainWindow.setProgressBar(-Infinity);
+				upcoming.sort(function (a, b) {
+					return new Date(b.start_time) - new Date(a.start_time);
+				});
+				past.sort(function (a, b) {
+					return new Date(b.start_time) - new Date(a.start_time);
+				});
 				main.mainWindow.webContents.send('gotEvents', upcoming, past);
 			}
 		}, schoolId);

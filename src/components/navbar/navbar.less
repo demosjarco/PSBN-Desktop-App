@@ -15,8 +15,11 @@ body {
 		top: 0;
 		width: 100%;
 		height: @barheight;
+		z-index: 1000;
 		background: rgb(229,57,34);
 		background: radial-gradient(circle, rgba(229,57,34,1) 0%, rgba(128,25,11,0) 75%);
+		box-shadow: -1px 10px 20px 0px rgba(0,0,0,0.75);
+		-webkit-box-shadow: -1px 10px 20px 0px rgba(0,0,0,0.75);
 
 		ul {
 			-webkit-app-region: no-drag;
@@ -33,7 +36,6 @@ body {
 				> span {
 					display: inline-block;
 					padding: ((@barheight - 24px)/2) 4px;
-
 					border-bottom: none;
 
 					&:hover, &.current {

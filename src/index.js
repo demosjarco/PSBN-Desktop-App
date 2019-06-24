@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './components/navbar';
+import Navbar from './components/navbar/navbar';
+import VideoList from './components/videoList/videoList';
 
 class App extends Component {
 	state = {}
@@ -8,7 +9,7 @@ class App extends Component {
 		return (
 			<div>
 				<Navbar />
-				<h1>test</h1>
+				<VideoList />
 			</div>
 		);
 	}
