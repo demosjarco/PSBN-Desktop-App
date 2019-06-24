@@ -33,6 +33,35 @@ function apiRequest(callback, accountId, eventId) {
 	});
 }
 
-module.exports.loadAll = function () {
+module.exports.loadAll = function() {
+	const main = require('./main.js');
 
+	let done = 0.0;
+	let total = 0;
+	let upcoming = [];
+	let past = [];
+	main.mainWindow.setProgressBar(Infinity);
+	Object.values(accountIds).forEach(function (schoolId) {
+		apiRequest(function (json) {
+			total += json.upcoming_events.data.length;
+			total += json.past_events.data.length;
+			main.mainWindow.setProgressBar(done / total);
+
+			json.upcoming_events.data.forEach(function (event) {
+				upcoming.push(event);
+				done += 1;
+				main.mainWindow.setProgressBar(done / total);
+			});
+			json.past_events.data.forEach(function (event) {
+				past.push(event);
+				done += 1;
+				main.mainWindow.setProgressBar(done / total);
+			});
+
+			if (done == total) {
+				main.mainWindow.setProgressBar(-Infinity);
+				main.mainWindow.webContents.send('gotEvents', upcoming, past);
+			}
+		}, schoolId);
+	});
 }
