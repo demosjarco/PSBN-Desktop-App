@@ -1,15 +1,86 @@
-div.windowControls {
-  -webkit-user-select: none;
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+body {
+  margin: 0;
+  padding-top: 50px;
+  font-family: 'Roboto', sans-serif;
+}
+body nav {
   -webkit-app-region: drag;
+  -webkit-user-select: none;
   position: fixed;
-  top: 8px;
-  right: 8px;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background: #e53922;
+  background: radial-gradient(circle, #e53922 0%, rgba(128, 25, 11, 0) 75%);
 }
-div.windowControls i {
+body nav ul {
   -webkit-app-region: no-drag;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  list-style-type: none;
   color: white;
-  cursor: pointer;
+  font-size: 20px;
 }
-div.windowControls i:hover {
+body nav ul li {
+  display: inline-block;
+}
+body nav ul li > span {
+  display: inline-block;
+  padding: 13px 4px;
+  border-bottom: none;
+}
+body nav ul li > span:hover,
+body nav ul li > span.current {
+  border-bottom: 2px solid #e53922;
+}
+body nav ul li ul {
+  display: none;
+}
+body nav ul li ul li {
+  display: block;
+  clear: both;
+  padding: 4px;
+  border-bottom: 1px solid #ffffff80;
+}
+body nav ul li ul li:last-child {
+  border-bottom: none;
+}
+body nav ul li:hover > ul,
+body nav ul li:focus-within > ul,
+body nav ul li ul:hover {
+  display: block;
+}
+body nav > span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  -webkit-text-stroke: 1.025px black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 41px;
+}
+body nav div.windowControls {
+  display: inline-block;
+  float: right;
+}
+body nav div.windowControls i {
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  padding: 4px;
+  color: white;
+  font-size: 20px;
+}
+body nav div.windowControls i:hover {
   background-color: #cccccc80;
+}
+body nav div.windowControls i:hover.close {
+  background-color: #ff0000bf;
 }

@@ -14,11 +14,28 @@ class Navbar extends Component {
 	}
 	render() {
 		return (
-			<div className="windowControls">
-				<i onClick={this.minimize} className="material-icons">minimize</i>
-				<i onClick={this.maximize} className="material-icons">crop_square</i>
-				<i onClick={this.close} className="material-icons">close</i>
-			</div>
+			<nav>
+				<ul>
+					<li><span>Schools</span>
+						<ul>
+							<li>Cactus</li>
+							<li>Centennial</li>
+							<li>Ironwood</li>
+							<li>Liberty</li>
+							<li>Peoria</li>
+							<li>Kellis</li>
+							<li>Sunrise Mtn.</li>
+							<li>District</li>
+						</ul>
+					</li>
+				</ul>
+				<span>PSBN</span>
+				<div className="windowControls">
+					<i onClick={this.minimize} className="material-icons">minimize</i>
+					<i onClick={this.maximize} className="material-icons">crop_square</i>
+					<i onClick={this.close} className="material-icons close">close</i>
+				</div>
+			</nav>
 		);
 	}
 }
