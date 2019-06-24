@@ -1,6 +1,7 @@
 'use strict';
 
 const { app, BrowserWindow, ipcMain } = require('electron');
+const livestreamApi = require('./livestreamApi');
 
 let mainWindow;
 
@@ -49,7 +50,7 @@ app.on('ready', () => {
 
 	module.exports.mainWindow = mainWindow;
 
-	require('./livestreamApi').loadAll();
+	livestreamApi.loadAll();
 });
 
 // Quit when all windows are closed.
@@ -81,4 +82,8 @@ ipcMain.on('maximize', (event) => {
 });
 ipcMain.on('close', (event) => {
 	mainWindow.close();
+});
+
+ipcMain.on('gotEvents', (event) => {
+	livestreamApi.loadAll();
 });
